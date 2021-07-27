@@ -35,7 +35,7 @@ class Predictor():
         if isinstance(when_data, dict):
             json = {'when': when_data}
             url = f'/predictors/{self.name}/predict'
-        elif isinstance(when_data, str):
+        elif isinstance(when_data, pd.DataFrame):
             ds = self._check_datasource(when_data)
             json = {'data_source_name': ds.name}
             url = f'/predictors/{self.name}/predict_datasource'
